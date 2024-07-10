@@ -1,0 +1,2249 @@
+The Schema Name is HIS_MedicalTrx and it has 5 tables: DiseaseClassificationRecord, MedicalEncounter, MedicalOrder, MedicalOrderItem, ProcedureClassificationRecord. These are the following columns and description in each table in the schema:
+
+Table: HIS_MedicalTrx.DiseaseClassificationRecord
+Columns:
+Name: AdmissionDR, Type: bigint, Description: This is a foreign key referencing another table Admission that contains detailed records of patient admissions. (Type: Integer), Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: This uniquely identifies the patient admission. It might be a large number due to the format. (Type: Numeric/Decimal (in scientific notation for large numbers)), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: This records the date and time when the disease classification record was created. (Type: Timestamp), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: This is a foreign key referencing a User table, indicating the user who created this record. (Type: Integer), Primary Key: NO
+Name: DiseaseClassificationDR, Type: bigint, Description: This is a foreign key referencing another table DiseaseClassification that holds detailed information about disease classifications. (Type: Integer), Primary Key: NO
+Name: DiseaseClassificationId, Type: bigint, Description: This uniquely identifies the disease classification within the context of the DiseaseClassificationRecord. (Type: Integer), Primary Key: NO
+Name: DiseaseClassificationRecordId, Type: bigint, Description: This uniquely identifies the disease classification record. Similar to AdmissionId, it might be large. (Type: Numeric/Decimal (in scientific notation for large numbers)), Primary Key: YES
+Name: DoctorUserDR, Type: bigint, Description: This is a foreign key referencing a User table, indicating the doctor associated with this record. (Type: Integer), Primary Key: NO
+Name: DoctorUserId, Type: bigint, Description: This uniquely identifies the doctor within the context of the DiseaseClassificationRecord. (Type: Integer), Primary Key: NO
+Name: IsNewCase, Type: bit, Description: Indicates whether this disease classification record pertains to a new case (1 for true, 0 for false). (Type: Boolean (represented as Integer)), Primary Key: NO
+Name: IsPrimary, Type: bit, Description: Indicates whether this disease classification is the primary classification for the patient admission (1 for true, 0 for false). (Type: Boolean (represented as Integer)), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: This records the date and time when the disease classification record was last updated. (Type: Timestamp), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: This is a foreign key referencing a User table, indicating the user who last updated this record. (Type: Integer), Primary Key: NO
+
+Table: HIS_MedicalTrx.MedicalEncounter
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: Date, Type: timestamp, Description: None, Primary Key: NO
+Name: EncounterDate, Type: timestamp, Description: None, Primary Key: NO
+Name: EncounterUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: EncounterUserId, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalEncounterId, Type: bigint, Description: None, Primary Key: YES
+Name: MedicalEncounterTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalEncounterTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesRequestItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesRequestItemId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: UserDR, Type: bigint, Description: None, Primary Key: NO
+Name: UserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_MedicalTrx.MedicalOrder
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EncounterDate, Type: timestamp, Description: None, Primary Key: NO
+Name: IsPrinted, Type: bit, Description: None, Primary Key: NO
+Name: MedicalEncounterDR, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalEncounterId, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalOrderDR, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalOrderId, Type: bigint, Description: None, Primary Key: YES
+Name: MedicalOrderInterfaceId, Type: varchar, Description: None, Primary Key: NO
+Name: MedicalOrderStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalOrderStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalOrderTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalOrderTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalPrescriptionTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalPrescriptionTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrderDate, Type: timestamp, Description: None, Primary Key: NO
+Name: OrderNo, Type: varchar, Description: None, Primary Key: NO
+Name: OrderText, Type: varchar, Description: None, Primary Key: NO
+Name: OrderUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrderUserId, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPriorityDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesPriorityId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_MedicalTrx.MedicalOrderItem
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: ApprovalStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: ApprovalStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: ApproveDate, Type: varchar, Description: None, Primary Key: NO
+Name: ApproveNotes, Type: varchar, Description: None, Primary Key: NO
+Name: ApproveUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: ApproveUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EndDate, Type: varchar, Description: None, Primary Key: NO
+Name: IsOverride, Type: bit, Description: None, Primary Key: NO
+Name: IssuedQuantity, Type: numeric, Description: None, Primary Key: NO
+Name: MedicalEncounterDR, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalEncounterId, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalOrderDR, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalOrderId, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalOrderItemId, Type: bigint, Description: None, Primary Key: YES
+Name: MedicalOrderItemStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalOrderItemStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalOrderTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalOrderTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: OrderDate, Type: varchar, Description: None, Primary Key: NO
+Name: OrderUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrderUserId, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: Quantity, Type: numeric, Description: None, Primary Key: NO
+Name: Repeat, Type: integer, Description: None, Primary Key: NO
+Name: StartDate, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_MedicalTrx.ProcedureClassificationRecord
+Columns:
+Name: AdmissionDR, Type: bigint, Description: This is a foreign key referencing another table Admission that contains detailed records of patient admissions. (Type: Integer), Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: This uniquely identifies the patient admission. It might be a large number due to the format. (Type: Numeric/Decimal (in scientific notation for large numbers)), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: This records the date and time when the procedure classification record was created. (Type: Timestamp), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: This is a foreign key referencing a User table, indicating the user who created this record. (Type: Integer), Primary Key: NO
+Name: DoctorUserDR, Type: bigint, Description: This is a foreign key referencing a User table, indicating the doctor associated with this record. (Type: Integer), Primary Key: NO
+Name: DoctorUserId, Type: bigint, Description: This uniquely identifies the doctor within the context of the ProcedureClassificationRecord. (Type: Integer), Primary Key: NO
+Name: ProcedureClassificationDR, Type: bigint, Description: This is a foreign key referencing another table ProcedureClassification that holds detailed information about procedure classifications. (Type: Integer), Primary Key: NO
+Name: ProcedureClassificationId, Type: bigint, Description: This uniquely identifies the procedure classification within the context of the ProcedureClassificationRecord. (Type: Integer), Primary Key: NO
+Name: ProcedureClassificationRecordId, Type: bigint, Description: This uniquely identifies the procedure classification record. Similar to AdmissionId, it might be large. (Type: Numeric/Decimal (in scientific notation for large numbers)), Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: This records the date and time when the procedure classification record was last updated. (Type: Timestamp), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: This is a foreign key referencing a User table, indicating the user who last updated this record. (Type: Integer), Primary Key: NO
+
+The Schema Name is HIS_PatientTrx and it has 5 tables: Admission, BedTransfer, Discharge, DischargeRequest, SubDischarge. These are the following columns and description in each table in the schema:
+
+Table: HIS_PatientTrx.Admission
+Columns:
+Name: Address, Type: varchar, Description: The address associated with the admission. (Type: String), Primary Key: NO
+Name: AdmissionCoverageTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of admission coverage. (Type: Integer), Primary Key: NO
+Name: AdmissionCoverageTypeId, Type: smallint, Description: Unique identifier for the type of admission coverage. (Type: Integer), Primary Key: NO
+Name: AdmissionDate, Type: timestamp, Description: The date and time when the admission was recorded. (Type: Timestamp), Primary Key: NO
+Name: AdmissionDependencyTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of admission dependencies. (Type: Integer), Primary Key: NO
+Name: AdmissionDependencyTypeId, Type: smallint, Description: Unique identifier for the type of admission dependency. (Type: Integer), Primary Key: NO
+Name: AdmissionDiscountTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of admission discounts. (Type: Integer), Primary Key: NO
+Name: AdmissionDiscountTypeId, Type: smallint, Description: Unique identifier for the type of admission discount. (Type: Integer), Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: Unique identifier for the admission. (Type: Numeric/Decimal (in scientific notation for large numbers)), Primary Key: YES
+Name: AdmissionNo, Type: varchar, Description: Admission number assigned to the patient. (Type: String), Primary Key: NO
+Name: AdmissionStatusDR, Type: smallint, Description: A foreign key referencing a table that details the statuses of admissions. (Type: Integer), Primary Key: NO
+Name: AdmissionStatusId, Type: smallint, Description: Unique identifier for the status of the admission. (Type: Integer), Primary Key: NO
+Name: AdmissionSubDischargeStatusDR, Type: smallint, Description: A foreign key referencing a table that details the sub-statuses of discharge. (Type: Integer), Primary Key: NO
+Name: AdmissionSubDischargeStatusId, Type: smallint, Description: Unique identifier for the sub-status of discharge. (Type: Integer), Primary Key: NO
+Name: AdmissionSubTypeDR, Type: smallint, Description: A foreign key referencing a table that details the sub-types of admissions. (Type: Integer), Primary Key: NO
+Name: AdmissionSubTypeId, Type: smallint, Description: Unique identifier for the sub-type of admission. (Type: Integer), Primary Key: NO
+Name: AdmissionTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of admissions. (Type: Integer), Primary Key: NO
+Name: AdmissionTypeId, Type: smallint, Description: Unique identifier for the type of admission. (Type: Integer), Primary Key: NO
+Name: ArInvoiceDR, Type: bigint, Description: A foreign key referencing an invoice table. (Type: Integer), Primary Key: NO
+Name: ArInvoiceId, Type: bigint, Description: Unique identifier for the invoice related to the admission. (Type: Integer), Primary Key: NO
+Name: BedArItemDR, Type: bigint, Description: A foreign key referencing a table that details the bed items. (Type: Integer), Primary Key: NO
+Name: BedArItemId, Type: bigint, Description: Unique identifier for the bed item related to the admission. (Type: Integer), Primary Key: NO
+Name: BedTransferDR, Type: bigint, Description: A foreign key referencing a table that details the bed transfers. (Type: Integer), Primary Key: NO
+Name: BirthDate, Type: varchar, Description: The birth date of the patient. (Type: Date), Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: The date and time when the admission was canceled. (Type: Timestamp), Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: Notes related to the cancellation of the admission. (Type: String), Primary Key: NO
+Name: CancelReasonDR, Type: bigint, Description: A foreign key referencing a table that details the reasons for cancellation. (Type: Integer), Primary Key: NO
+Name: CancelReasonId, Type: bigint, Description: Unique identifier for the reason for cancellation. (Type: Integer), Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: A foreign key referencing a user table indicating the user who canceled the admission. (Type: Integer), Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: Unique identifier for the user who canceled the admission. (Type: Integer), Primary Key: NO
+Name: CityDR, Type: bigint, Description: A foreign key referencing a city table. (Type: Integer), Primary Key: NO
+Name: CityId, Type: bigint, Description: Unique identifier for the city related to the admission. (Type: Integer), Primary Key: NO
+Name: ClassDR, Type: bigint, Description: A foreign key referencing a table that details the class of the admission. (Type: Integer), Primary Key: NO
+Name: CodingDate, Type: timestamp, Description: The date and time when the coding for the admission was done. (Type: Timestamp), Primary Key: NO
+Name: ContactAddress, Type: varchar, Description: The address of the contact person related to the admission. (Type: String), Primary Key: NO
+Name: ContactCityDR, Type: bigint, Description: A foreign key referencing a city table for the contact person. (Type: Integer), Primary Key: NO
+Name: ContactCityId, Type: bigint, Description: Unique identifier for the city of the contact person. (Type: Integer), Primary Key: NO
+Name: ContactEmailAddress, Type: varchar, Description: The email address of the contact person related to the admission. (Type: String), Primary Key: NO
+Name: ContactMobileNo, Type: varchar, Description: The mobile number of the contact person. (Type: String), Primary Key: NO
+Name: ContactName, Type: varchar, Description: The name of the contact person. (Type: String), Primary Key: NO
+Name: ContactPhoneNo, Type: varchar, Description: The phone number of the contact person. (Type: String), Primary Key: NO
+Name: CoverageDR, Type: bigint, Description: A foreign key referencing a coverage table. (Type: Integer), Primary Key: NO
+Name: CoverageId, Type: bigint, Description: Unique identifier for the coverage related to the admission. (Type: Integer), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: The date and time when the admission record was created. (Type: Timestamp), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Unique identifier for the user who created the admission record. (Type: Integer), Primary Key: NO
+Name: DefaultLimitNumericFactor, Type: numeric, Description: The default numeric factor for limits associated with the admission. (Type: Numeric), Primary Key: NO
+Name: DefaultLimitTypeId, Type: smallint, Description: Unique identifier for the type of limit associated with the admission. (Type: Integer), Primary Key: NO
+Name: DepositBalanceAmount, Type: numeric, Description: The balance amount of the deposit for the admission. (Type: Numeric), Primary Key: NO
+Name: DischargeDR, Type: bigint, Description: A foreign key referencing a table that details the discharge information. (Type: Integer), Primary Key: NO
+Name: DischargeDate, Type: timestamp, Description: The date and time when the discharge occurred. (Type: Timestamp), Primary Key: NO
+Name: DischargeId, Type: bigint, Description: Unique identifier for the discharge related to the admission. (Type: Integer), Primary Key: NO
+Name: DischargeRequestDR, Type: bigint, Description: A foreign key referencing a table that details the discharge requests. (Type: Integer), Primary Key: NO
+Name: DischargeRequestId, Type: bigint, Description: Unique identifier for the discharge request. (Type: Integer), Primary Key: NO
+Name: DiseaseClassificationDR, Type: bigint, Description: A foreign key referencing a table that details the classification of diseases. (Type: Integer), Primary Key: NO
+Name: DiseaseClassificationId, Type: bigint, Description: Unique identifier for the disease classification. (Type: Integer), Primary Key: NO
+Name: DiseaseCodeList, Type: varchar, Description: A list of disease codes associated with the admission. (Type: String), Primary Key: NO
+Name: DiseaseList, Type: varchar, Description: A list of diseases associated with the admission. (Type: String), Primary Key: NO
+Name: EmailAddress, Type: varchar, Description: The email address associated with the admission. (Type: Integer), Primary Key: NO
+Name: EmailTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of emails. (Type: Integer), Primary Key: NO
+Name: EmailTypeId, Type: smallint, Description: Unique identifier for the type of email. (Type: Integer), Primary Key: NO
+Name: EmployeeId, Type: bigint, Description: Unique identifier for the employee related to the admission. (Type: Integer), Primary Key: NO
+Name: ExternalDoctorDR, Type: bigint, Description: A foreign key referencing a table that details external doctors. (Type: Integer), Primary Key: NO
+Name: InvoiceClassId, Type: bigint, Description: Unique identifier for the class of the invoice related to the admission. (Type: Integer), Primary Key: NO
+Name: IsPatientRegistered, Type: bit, Description: Indicates whether the patient is registered. (Type: Boolean), Primary Key: NO
+Name: LimitTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of limits. (Type: Integer), Primary Key: NO
+Name: MedicalOrderItemDR, Type: bigint, Description: A foreign key referencing a table that details medical order items. (Type: Integer), Primary Key: NO
+Name: MedicalOrderItemId, Type: bigint, Description: Unique identifier for the medical order item. (Type: Integer), Primary Key: NO
+Name: Name, Type: varchar, Description: The name of the patient. (Type: String), Primary Key: NO
+Name: Notes, Type: varchar, Description: Notes related to the admission. (Type: String), Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: A foreign key referencing an organization table. (Type: Integer), Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: Unique identifier for the organization. (Type: Integer), Primary Key: NO
+Name: ParentAdmissionDR, Type: bigint, Description: A foreign key referencing a parent admission record. (Type: Integer), Primary Key: NO
+Name: ParentAdmissionId, Type: bigint, Description: Unique identifier for the parent admission. (Type: Integer), Primary Key: NO
+Name: PatientDR, Type: bigint, Description: A foreign key referencing a patient table. (Type: Integer), Primary Key: NO
+Name: PatientId, Type: bigint, Description: Unique identifier for the patient. (Type: Integer), Primary Key: NO
+Name: PatientOrganizationDR, Type: bigint, Description: A foreign key referencing a patient organization table. (Type: Integer), Primary Key: NO
+Name: PatientOrganizationId, Type: bigint, Description: Unique identifier for the patient organization. (Type: Integer), Primary Key: NO
+Name: PatientTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of patients. (Type: Integer), Primary Key: NO
+Name: PatientTypeId, Type: smallint, Description: Unique identifier for the type of patient. (Type: Integer), Primary Key: NO
+Name: PayerDR, Type: bigint, Description: A foreign key referencing a payer table. (Type: Integer), Primary Key: NO
+Name: PayerEligibilityId, Type: bigint, Description: Unique identifier for the payer eligibility. (Type: Integer), Primary Key: NO
+Name: PayerEligibilityNo, Type: varchar, Description: The eligibility number for the payer. (Type: String), Primary Key: NO
+Name: PayerId, Type: bigint, Description: Unique identifier for the payer. (Type: Integer), Primary Key: NO
+Name: PayerIdNo, Type: varchar, Description: The ID number for the payer. (Type: String), Primary Key: NO
+Name: PayerLimitAmount, Type: numeric, Description: The limit amount for the payer. (Type: Numeric), Primary Key: NO
+Name: PhoneNo, Type: varchar, Description: The phone number associated with the admission. (Type: String), Primary Key: NO
+Name: PrimaryDoctorUserDR, Type: bigint, Description: A foreign key referencing a user table indicating the primary doctor. (Type: Integer), Primary Key: NO
+Name: PrimaryDoctorUserId, Type: bigint, Description: Unique identifier for the primary doctor. (Type: Integer), Primary Key: NO
+Name: ProcedureCodeList, Type: varchar, Description: A list of procedure codes associated with the admission. (Type: String), Primary Key: NO
+Name: ProcedureList, Type: varchar, Description: A list of procedures associated with the admission. (Type: String), Primary Key: NO
+Name: ProcedureRoomId, Type: bigint, Description: Unique identifier for the procedure room. (Type: Integer), Primary Key: NO
+Name: ReferralAdmissionId, Type: bigint, Description: Unique identifier for the referral admission. (Type: Integer), Primary Key: NO
+Name: ReferralAdmissionIdDR, Type: bigint, Description: A foreign key referencing a referral admission table. (Type: Integer), Primary Key: NO
+Name: ReferralAdmissionNo, Type: varchar, Description: The number for the referral admission. (Type: String), Primary Key: NO
+Name: ReferralAdmissionTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of referral admissions. (Type: Integer), Primary Key: NO
+Name: ReferralAdmissionTypeId, Type: smallint, Description: Unique identifier for the type of referral admission. (Type: Integer), Primary Key: NO
+Name: ReferralDoctorUser, Type: varchar, Description: The name of the referral doctor. (Type: String), Primary Key: NO
+Name: ReferralDoctorUserDR, Type: bigint, Description: A foreign key referencing a user table indicating the referral doctor. (Type: Integer), Primary Key: NO
+Name: ReferralDoctorUserId, Type: bigint, Description: Unique identifier for the referral doctor. (Type: Integer), Primary Key: NO
+Name: ReferralExternalDoctorId, Type: bigint, Description: Unique identifier for the external referral doctor. (Type: Integer), Primary Key: NO
+Name: ReferralExternalOrganizationDR, Type: bigint, Description: A foreign key referencing an external organization table. (Type: Integer), Primary Key: NO
+Name: ReferralExternalOrganizationId, Type: bigint, Description: Unique identifier for the external organization. (Type: Integer), Primary Key: NO
+Name: ReferralInterOrganizationDoctorUserDR, Type: bigint, Description: A foreign key referencing an inter-organization doctor user table. (Type: Integer), Primary Key: NO
+Name: ReferralInterOrganizationDoctorUserId, Type: bigint, Description: Unique identifier for the inter-organization doctor user. (Type: Integer), Primary Key: NO
+Name: ReferralName, Type: varchar, Description: The name of the referral. (Type: String), Primary Key: NO
+Name: ReferralOnlineAggregatorId, Type: bigint, Description: Unique identifier for the online aggregator of the referral. (Type: Integer), Primary Key: NO
+Name: ReferralPhoneNo, Type: varchar, Description: The phone number for the referral. (Type: String), Primary Key: NO
+Name: ReferralTypeDR, Type: smallint, Description: A foreign key referencing a table that details the types of referrals. (Type: Integer), Primary Key: NO
+Name: ReferralTypeId, Type: smallint, Description: Unique identifier for the type of referral. (Type: Integer), Primary Key: NO
+Name: SalesDiscountDR, Type: bigint, Description: A foreign key referencing a table that details the types of sales discounts. (Type: Integer), Primary Key: NO
+Name: SalesDiscountId, Type: bigint, Description: Unique identifier for the sales discount. (Type: Integer), Primary Key: NO
+Name: SexDR, Type: smallint, Description: A foreign key referencing a table that details the sex/gender of the patient. (Type: Integer), Primary Key: NO
+Name: SexId, Type: smallint, Description: Unique identifier for the sex/gender of the patient. (Type: Integer), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: The date and time when the admission record was last updated. (Type: Timestamp), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Unique identifier for the user who last updated the admission record. (Type: Integer), Primary Key: NO
+Name: xLengthOfStay, Type: integer, Description: The length of stay for the admission. (Type: Integer), Primary Key: NO
+
+Table: HIS_PatientTrx.BedTransfer
+Columns:
+Name: BedDR, Type: bigint, Description: None, Primary Key: NO
+Name: BedId, Type: bigint, Description: None, Primary Key: NO
+Name: BedTransferId, Type: bigint, Description: None, Primary Key: YES
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: TransferDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_PatientTrx.Discharge
+Columns:
+Name: AdmissionDR, Type: bigint, Description: A foreign key referencing the Admission table. (Type: Integer), Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: Unique identifier for the admission. (Type: Integer), Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: The date and time when the discharge was canceled. (Type: Timestamp), Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: Notes related to the cancellation of the discharge. (Type: String), Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: A foreign key referencing a user table indicating who canceled the discharge. (Type: Integer), Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: Unique identifier for the user who canceled the discharge. (Type: Integer), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: The date and time when the discharge record was created. (Type: Timestamp), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Unique identifier for the user who created the discharge record. (Type: Integer), Primary Key: NO
+Name: DischargeConditionDR, Type: bigint, Description: A foreign key referencing a table that details discharge conditions. (Type: Integer), Primary Key: NO
+Name: DischargeConditionId, Type: bigint, Description: Unique identifier for the discharge condition. (Type: Integer), Primary Key: NO
+Name: DischargeDate, Type: timestamp, Description: The date and time when the discharge occurred. (Type: Timestamp), Primary Key: NO
+Name: DischargeId, Type: bigint, Description: Unique identifier for the discharge. (Type: Integer), Primary Key: YES
+Name: DischargePlanTypeDR, Type: smallint, Description: A foreign key referencing a table that details discharge plan types. (Type: Integer), Primary Key: NO
+Name: DischargePlanTypeId, Type: smallint, Description: Unique identifier for the discharge plan type. (Type: Integer), Primary Key: NO
+Name: DischargeStatusDR, Type: smallint, Description: A foreign key referencing a table that details discharge statuses. (Type: Integer), Primary Key: NO
+Name: DischargeStatusId, Type: smallint, Description: Unique identifier for the discharge status. (Type: Integer), Primary Key: NO
+Name: DischargeTypeDR, Type: smallint, Description: A foreign key referencing a table that details discharge types. (Type: Integer), Primary Key: NO
+Name: DischargeTypeId, Type: smallint, Description: Unique identifier for the discharge type. (Type: Integer), Primary Key: NO
+Name: IsDischargePrescriptionExist, Type: bit, Description: Indicates whether a discharge prescription exists. (Type: Boolean), Primary Key: NO
+Name: IsItemToReturnExist, Type: bit, Description: Indicates whether there are items to return. (Type: Boolean), Primary Key: NO
+Name: Notes, Type: varchar, Description: Additional notes related to the discharge. (Type: String), Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: A foreign key referencing an organization table. (Type: Integer), Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: Unique identifier for the organization. (Type: Integer), Primary Key: NO
+Name: TriageTypeDR, Type: smallint, Description: A foreign key referencing a table that details triage types. (Type: Integer), Primary Key: NO
+Name: TriageTypeId, Type: smallint, Description: Unique identifier for the triage type. (Type: Integer), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: The date and time when the discharge record was last updated. (Type: Timestamp), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Unique identifier for the user who last updated the discharge record. (Type: Integer), Primary Key: NO
+
+Table: HIS_PatientTrx.DischargeRequest
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionidDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DischargeConditionDR, Type: bigint, Description: None, Primary Key: NO
+Name: DischargeConditionId, Type: bigint, Description: None, Primary Key: NO
+Name: DischargeDate, Type: varchar, Description: None, Primary Key: NO
+Name: DischargePlanTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DischargePlanTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: DischargeRequestId, Type: bigint, Description: None, Primary Key: YES
+Name: DischargeRequestStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: DischargeRequestStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: DischargeTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DischargeTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: IsDischargePrescriptionExist, Type: bit, Description: None, Primary Key: NO
+Name: IsItemToReturnExist, Type: bit, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: RequestDate, Type: timestamp, Description: None, Primary Key: NO
+Name: TriageTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: TriageTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_PatientTrx.SubDischarge
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DischargeDate, Type: timestamp, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: SubDischargeId, Type: bigint, Description: None, Primary Key: YES
+Name: SubDischargeStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: SubDischargeStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: SubDischargeTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SubDischargeTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: UserDR, Type: bigint, Description: None, Primary Key: NO
+
+The Schema Name is HIS_Patient and it has 22 tables: AdmissionDependencyType, AdmissionStatus, AdmissionSubDischargeStatus, AdmissionSubType, AdmissionType, DischargeCondition, DischargePlanType, DischargeRequestStatus, DischargeStatus, DischargeType, EmailType, ExternalDoctor, ExternalOrganization, MedicalRecordStatus, Patient, PatientAttribute, PatientOrganization, PatientStatus, PatientType, ReferralType, SubDischargeStatus, SubDischargeType. These are the following columns and description in each table in the schema:
+
+Table: HIS_Patient.AdmissionDependencyType
+Columns:
+Name: AdmissionDependencyTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.AdmissionStatus
+Columns:
+Name: AdmissionStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.AdmissionSubDischargeStatus
+Columns:
+Name: AdmissionSubDischargeStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.AdmissionSubType
+Columns:
+Name: AdmissionSubTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.AdmissionType
+Columns:
+Name: AdmissionTypeId, Type: smallint, Description: Acts as the primary key for the table, uniquely identifying each type of admission (Data Type: Integer), Primary Key: YES
+Name: Code, Type: varchar, Description: A short code or identifier for the admission type, used for quick reference and within system integrations (Data Type: String), Primary Key: NO
+Name: IsActive, Type: bit, Description: A boolean indicator that shows whether the admission type is currently active (1 for active, 0 for inactive) (Data Type: Boolean), Primary Key: NO
+Name: LocalName, Type: varchar, Description: The name of the admission type in the local language, facilitating easier understanding and use within the local context (Data Type: String), Primary Key: NO
+Name: Name, Type: varchar, Description: The name of the admission type in English, used for standardization and broader communication (Data Type: String), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: Records the date and time when the admission type record was last updated, providing a history of changes and ensuring data integrity (Data Type: DateTime), Primary Key: NO
+
+Table: HIS_Patient.DischargeCondition
+Columns:
+Name: Code, Type: varchar, Description: Unique code for the discharge condition (Data Type: String), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: Timestamp indicating when the discharge condition record was created (Data Type: Timestamp), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Identifier for the user who created the discharge condition record (Data Type: Integer), Primary Key: NO
+Name: DischargeConditionId, Type: bigint, Description: Unique identifier for each discharge condition (Data Type: Integer), Primary Key: YES
+Name: IsActive, Type: bit, Description: Flag indicating whether the discharge condition is currently active (Data Type: Boolean (0 or 1)), Primary Key: NO
+Name: Name, Type: varchar, Description: The name of the discharge condition (Data Type: String), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: Timestamp indicating when the discharge condition record was last updated (Data Type: Timestamp), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Identifier for the user who last updated the discharge condition record (Data Type: Integer), Primary Key: NO
+
+Table: HIS_Patient.DischargePlanType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: DischargePlanTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.DischargeRequestStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: DischargeRequestStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.DischargeStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: DischargeStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.DischargeType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: DischargeTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.EmailType
+Columns:
+Name: AlternateCode, Type: varchar, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: EmailTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.ExternalDoctor
+Columns:
+Name: Address, Type: varchar, Description: None, Primary Key: NO
+Name: BankAccount, Type: varchar, Description: None, Primary Key: NO
+Name: BankBeneficiar, Type: varchar, Description: None, Primary Key: NO
+Name: CityDR, Type: bigint, Description: None, Primary Key: NO
+Name: CityId, Type: bigint, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EmailAddress, Type: varchar, Description: None, Primary Key: NO
+Name: ExternalDoctorId, Type: bigint, Description: None, Primary Key: YES
+Name: ExternalOrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: ExternalOrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: FaxNo, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsVerified, Type: bit, Description: None, Primary Key: NO
+Name: MobileNo, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PhoneNo, Type: varchar, Description: None, Primary Key: NO
+Name: SpecialtyDR, Type: bigint, Description: None, Primary Key: NO
+Name: SpecialtyId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: Website, Type: varchar, Description: None, Primary Key: NO
+
+Table: HIS_Patient.ExternalOrganization
+Columns:
+Name: Address, Type: varchar, Description: None, Primary Key: NO
+Name: BankAccount, Type: varchar, Description: None, Primary Key: NO
+Name: BankBeneficiar, Type: varchar, Description: None, Primary Key: NO
+Name: CityDR, Type: bigint, Description: None, Primary Key: NO
+Name: CityId, Type: bigint, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EmailAddress, Type: varchar, Description: None, Primary Key: NO
+Name: ExternalOrganizationId, Type: bigint, Description: None, Primary Key: YES
+Name: FaxNo, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsVerified, Type: bit, Description: None, Primary Key: NO
+Name: MobileNo, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PhoneNo, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: Website, Type: varchar, Description: None, Primary Key: NO
+
+Table: HIS_Patient.MedicalRecordStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: MedicalRecordStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.Patient
+Columns:
+Name: Address, Type: varchar, Description: None, Primary Key: NO
+Name: Allergy, Type: varchar, Description: None, Primary Key: NO
+Name: BirthDate, Type: varchar, Description: None, Primary Key: NO
+Name: BirthPlaceCityDR, Type: bigint, Description: None, Primary Key: NO
+Name: BirthPlaceId, Type: bigint, Description: None, Primary Key: NO
+Name: BloodTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: BloodTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: CityDR, Type: bigint, Description: None, Primary Key: NO
+Name: CityId, Type: bigint, Description: None, Primary Key: NO
+Name: ContactAddress, Type: varchar, Description: None, Primary Key: NO
+Name: ContactCityDR, Type: bigint, Description: None, Primary Key: NO
+Name: ContactCityId, Type: bigint, Description: None, Primary Key: NO
+Name: ContactEmailAddress, Type: varchar, Description: None, Primary Key: NO
+Name: ContactMobileNo, Type: varchar, Description: None, Primary Key: NO
+Name: ContactName, Type: varchar, Description: None, Primary Key: NO
+Name: ContactPhoneNo, Type: varchar, Description: None, Primary Key: NO
+Name: CountryDR, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DeceasedDate, Type: timestamp, Description: None, Primary Key: NO
+Name: DistrictDR, Type: bigint, Description: None, Primary Key: NO
+Name: DistrictId, Type: bigint, Description: None, Primary Key: NO
+Name: EmailAddress, Type: varchar, Description: None, Primary Key: NO
+Name: FatherName, Type: varchar, Description: None, Primary Key: NO
+Name: HomePhoneNo, Type: varchar, Description: None, Primary Key: NO
+Name: MaritalStatusDR, Type: bigint, Description: None, Primary Key: NO
+Name: MaritalStatusId, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalRecordStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalRecordStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: MergedPatientDR, Type: bigint, Description: None, Primary Key: NO
+Name: MergedPatientId, Type: bigint, Description: None, Primary Key: NO
+Name: MobileNo1, Type: varchar, Description: None, Primary Key: NO
+Name: MobileNo2, Type: varchar, Description: None, Primary Key: NO
+Name: MotherName, Type: varchar, Description: None, Primary Key: NO
+Name: MrNo, Type: bigint, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: NationalIdNo, Type: varchar, Description: None, Primary Key: NO
+Name: NationalIdTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: NationalIdTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: NationalityId, Type: bigint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OfficePhoneNo, Type: varchar, Description: None, Primary Key: NO
+Name: PatientAttribute1DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute1Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute2DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute2Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute3DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute3Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute4DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute4Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute5DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute5Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientId, Type: bigint, Description: None, Primary Key: YES
+Name: PatientStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: PatientStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: PayerDR, Type: bigint, Description: None, Primary Key: NO
+Name: PayerId, Type: bigint, Description: None, Primary Key: NO
+Name: PayerIdNo, Type: varchar, Description: None, Primary Key: NO
+Name: PermanentAddress, Type: varchar, Description: None, Primary Key: NO
+Name: PermanentCityDR, Type: bigint, Description: None, Primary Key: NO
+Name: PermanentCityId, Type: bigint, Description: None, Primary Key: NO
+Name: PermanentPostCode, Type: varchar, Description: None, Primary Key: NO
+Name: PostCode, Type: varchar, Description: None, Primary Key: NO
+Name: RegistrationDate, Type: timestamp, Description: None, Primary Key: NO
+Name: ReligionDR, Type: bigint, Description: None, Primary Key: NO
+Name: ReligionId, Type: bigint, Description: None, Primary Key: NO
+Name: SecondaryEmailAddress, Type: varchar, Description: None, Primary Key: NO
+Name: SexDR, Type: smallint, Description: None, Primary Key: NO
+Name: SexId, Type: smallint, Description: None, Primary Key: NO
+Name: SpouseName, Type: varchar, Description: None, Primary Key: NO
+Name: SubDistrictDR, Type: bigint, Description: None, Primary Key: NO
+Name: SubDistrictId, Type: bigint, Description: None, Primary Key: NO
+Name: TitleDR, Type: bigint, Description: None, Primary Key: NO
+Name: TitleId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: xCurrentAge, Type: integer, Description: None, Primary Key: NO
+
+Table: HIS_Patient.PatientAttribute
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute1, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute2, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute3, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute4, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute5, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: PatientAttributeId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Patient.PatientOrganization
+Columns:
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalRecordStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalRecordStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: MrNo, Type: bigint, Description: None, Primary Key: NO
+Name: Organization, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: OriginalPatientDR, Type: bigint, Description: None, Primary Key: NO
+Name: OriginalPatientId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute1DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute1Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute2DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute2Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute3DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute3Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute4DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute4Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute5DR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientAttribute5Id, Type: bigint, Description: None, Primary Key: NO
+Name: PatientDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationId, Type: bigint, Description: None, Primary Key: YES
+Name: RegistrationDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Patient.PatientStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: PatientStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.PatientType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: PatientTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.ReferralType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: ReferralTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.SubDischargeStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SubDischargeStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Patient.SubDischargeType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SubDischargeTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+The Schema Name is HIS_Medical and it has 15 tables: AdministrationFrequency, AdministrationRoute, DiseaseClassification, DoseUom, LocalDiseaseClassification, MedicalEncounterType, MedicalOrderItemStatus, MedicalOrderStatus, MedicalOrderType, MedicalPrescriptionType, ProcedureClassification, Specialty, SpecialtyGroup, SpecialtyType, TriageType. These are the following columns and description in each table in the schema:
+
+Table: HIS_Medical.AdministrationFrequency
+Columns:
+Name: AdministrationFrequencyId, Type: bigint, Description: None, Primary Key: YES
+Name: AlternateName, Type: varchar, Description: None, Primary Key: NO
+Name: CentralVersion, Type: smallint, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: FrequencyDay, Type: double, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SortOrder, Type: integer, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Medical.AdministrationRoute
+Columns:
+Name: AdministrationRouteId, Type: bigint, Description: None, Primary Key: YES
+Name: AlternateName, Type: varchar, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsInternal, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SortOrder, Type: integer, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Medical.DiseaseClassification
+Columns:
+Name: Code, Type: varchar, Description: Code representing the disease classification (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: Date and time when the record was created (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: User ID of the user who created the record (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: DiseaseClassificationId, Type: bigint, Description: Unique identifier for the disease classification record (Data Type: Numeric (INTEGER)), Primary Key: YES
+Name: IsActive, Type: bit, Description: Indicates if the disease classification is currently active (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER) where 1 indicates active and 0 indicates inactive), Primary Key: NO
+Name: IsApplicableToFemale, Type: bit, Description: Indicates if the disease classification is applicable to females (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER) where 1 indicates applicable and 0 indicates not applicable), Primary Key: NO
+Name: IsApplicableToMale, Type: bit, Description: Indicates if the disease classification is applicable to males (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER) where 1 indicates applicable and 0 indicates not applicable), Primary Key: NO
+Name: IsSelectable, Type: bit, Description: Indicates if the disease classification is selectable (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER) where 1 indicates selectable and 0 indicates not selectable), Primary Key: NO
+Name: LocalDiseaseClassificationDR, Type: bigint, Description: Local disease classification identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: LocalDiseaseClassificationId, Type: bigint, Description: Local disease classification ID (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: Name, Type: varchar, Description: Name or description of the disease classification (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ParentDiseaseClassificationDR, Type: bigint, Description: Parent disease classification identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: ParentDiseaseClassificationId, Type: bigint, Description: Parent disease classification ID (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: TreeLevel, Type: integer, Description: Level of the disease classification in the classification hierarchy (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: TreePath, Type: varchar, Description: Path of the disease classification in the classification hierarchy (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: Date and time when the record was last updated (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: User ID of the user who last updated the record (Data Type: Numeric (INTEGER)), Primary Key: NO
+
+Table: HIS_Medical.DoseUom
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DoseUomId, Type: bigint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Medical.LocalDiseaseClassification
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalDiseaseClassificationId, Type: bigint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Medical.MedicalEncounterType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: MedicalEncounterTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Medical.MedicalOrderItemStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: MedicalOrderItemStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Medical.MedicalOrderStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: MedicalOrderStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Medical.MedicalOrderType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: MedicalOrderTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Medical.MedicalPrescriptionType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: MedicalPrescriptionTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: MedicalPrescriptionTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Medical.ProcedureClassification
+Columns:
+Name: Code, Type: varchar, Description: Procedure code. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: Date and time when the record was created. (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: User ID of the user who created the record. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: IsActive, Type: bit, Description: Indicates if the procedure is active. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: IsApplicableToFemale, Type: bit, Description: Indicates if the procedure is applicable to females. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: IsApplicableToMale, Type: bit, Description: Indicates if the procedure is applicable to males. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: IsSelectable, Type: bit, Description: Indicates if the procedure is selectable. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: Name, Type: varchar, Description: Procedure name. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ParentClassificationId, Type: bigint, Description: Parent classification's identifier. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: ProcedureClassificationDR, Type: bigint, Description: Procedure classification's local identifier. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: ProcedureClassificationId, Type: bigint, Description: Procedure classification's identifier. (Data Type: Numeric (INTEGER)), Primary Key: YES
+Name: TreeLevel, Type: integer, Description: Level of the procedure in the classification tree. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: TreePath, Type: varchar, Description: Path of the procedure in the classification tree. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: Date and time when the record was last updated. (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: User ID of the user who last updated the record. (Data Type: Numeric (INTEGER)), Primary Key: NO
+
+Table: HIS_Medical.Specialty
+Columns:
+Name: Code, Type: varchar, Description: Code representing the specialty. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: Date and time when the record was created. (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: User ID of the user who created the record. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: IsActive, Type: bit, Description: Indicates if the specialty is active. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: Name, Type: varchar, Description: Name of the specialty. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: SpecialtyGroupDR, Type: bigint, Description: Group ID of the specialty. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: SpecialtyGroupId, Type: bigint, Description: Group ID of the specialty. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: SpecialtyId, Type: bigint, Description: Identifier for the specialty. (Data Type: Numeric (INTEGER)), Primary Key: YES
+Name: SpecialtyTypeDR, Type: smallint, Description: Type ID of the specialty. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: SpecialtyTypeId, Type: smallint, Description: Type ID of the specialty. (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: Date and time when the record was last updated. (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: User ID of the user who last updated the record. (Data Type: Numeric (INTEGER)), Primary Key: NO
+
+Table: HIS_Medical.SpecialtyGroup
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SpecialtyGroupId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Medical.SpecialtyType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SpecialtyTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Medical.TriageType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: TriageTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+The Schema Name is HIS_System and it has 1 tables: Organization. These are the following columns and description in each table in the schema:
+
+Table: HIS_System.Organization
+Columns:
+Name: Address, Type: varchar, Description: Address of the organization (Data Type: VARCHAR), Primary Key: NO
+Name: CMS, Type: bit, Description: Content Management System indicator (0 or 1) (Data Type: BOOLEAN), Primary Key: NO
+Name: Code, Type: varchar, Description: Code associated with the organization (Data Type: VARCHAR), Primary Key: NO
+Name: CompanyName, Type: varchar, Description: Name of the company (Data Type: VARCHAR), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: The date and time when the organization record was created (Data Type: TIMESTAMP), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Identifier for the user who created this record (Data Type: INTEGER), Primary Key: NO
+Name: DataSynchronizationRoleId, Type: smallint, Description: Identifier for the data synchronization role associated with the organization (Data Type: INTEGER), Primary Key: NO
+Name: IsActive, Type: bit, Description: Status indicating whether the organization is active (1) or inactive (0) (Data Type: BOOLEAN), Primary Key: NO
+Name: Name, Type: varchar, Description: Name of the organization (Data Type: VARCHAR), Primary Key: NO
+Name: OffsetMinutes, Type: integer, Description: Offset in minutes for the organization (Data Type: INTEGER), Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: Unique identifier for the organization (Data Type: INTEGER), Primary Key: YES
+Name: PrimaryKeyIdentifier, Type: bigint, Description: Primary key identifier for the organization (Data Type: INTEGER), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: The date and time when the organization record was last updated (Data Type: TIMESTAMP), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Identifier for the user who last updated this record (Data Type: INTEGER), Primary Key: NO
+
+The Schema Name is HIS_Sales and it has 48 tables: AdmissionCoverageType, AdmissionDiscountType, ArInvoiceStatus, ArInvoiceType, ArItemDeliveryStatus, ArItemStatus, ArItemType, Bed, CheckupPackageItemPrice, CheckupPackagePrice, Class, ClassType, ComplexityLevel, Coverage, CoverageItem, DiscountPortionType, LimitType, PackageItemPrice, PackagePrice, Payer, PayerConfig, PayerGroup, PayerType, ProcedureRoom, ProcedureRoomType, Room, SalesDiscount, SalesDiscountGroup, SalesItem, SalesItemAttribute, SalesItemGroup, SalesItemSubType, SalesItemType, SalesMarkup, SalesOrderStatus, SalesOrderType, SalesPrice, SalesPriceConfig, SalesPriceModel, SalesPriority, SalesRequestItemDeliveryStatus, SalesRequestItemStatus, SalesRequestItemType, SalesRequestStatus, SalesRequestType, ServiceLine, TransactionLevel, Ward. These are the following columns and description in each table in the schema:
+
+Table: HIS_Sales.AdmissionCoverageType
+Columns:
+Name: AdmissionCoverageTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.AdmissionDiscountType
+Columns:
+Name: AdmissionDiscountTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ArInvoiceStatus
+Columns:
+Name: ArInvoiceStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ArInvoiceType
+Columns:
+Name: ArInvoiceTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ArItemDeliveryStatus
+Columns:
+Name: ArItemDeliveryStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ArItemStatus
+Columns:
+Name: ArItemStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ArItemType
+Columns:
+Name: ArItemTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.Bed
+Columns:
+Name: BedId, Type: bigint, Description: None, Primary Key: YES
+Name: BedTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: ClassDR, Type: bigint, Description: None, Primary Key: NO
+Name: ClassId, Type: bigint, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: RoomDR, Type: bigint, Description: None, Primary Key: NO
+Name: RoomId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.CheckupPackageItemPrice
+Columns:
+Name: AverageCost, Type: numeric, Description: None, Primary Key: NO
+Name: CheckupPackageItemPriceId, Type: bigint, Description: None, Primary Key: YES
+Name: CheckupPackagePriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: CheckupPackagePriceId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DoctorPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DoctorPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: DoctorPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: HospitalPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: HospitalPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: HospitalPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: OtherPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: OtherPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: OtherPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPrice, Type: numeric, Description: None, Primary Key: NO
+Name: SupplierPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SupplierPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: SupplierPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.CheckupPackagePrice
+Columns:
+Name: AverageCost, Type: numeric, Description: None, Primary Key: NO
+Name: CheckupPackagePriceId, Type: bigint, Description: None, Primary Key: YES
+Name: ClassDR, Type: bigint, Description: None, Primary Key: NO
+Name: ClassId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EffectiveDate, Type: varchar, Description: None, Primary Key: NO
+Name: ExpiryDate, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPrice, Type: numeric, Description: None, Primary Key: NO
+Name: SalesPriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPriceId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.Class
+Columns:
+Name: ClassId, Type: bigint, Description: Unique identifier for each class (Data Type: Integer), Primary Key: YES
+Name: ClassTypeDR, Type: smallint, Description: Foreign key referencing the detailed record of the class type (Data Type: Integer), Primary Key: NO
+Name: ClassTypeId, Type: smallint, Description: Identifier for the class type (Data Type: Integer), Primary Key: NO
+Name: Code, Type: varchar, Description: Unique code representing the class (Data Type: String), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: Timestamp indicating when the class record was created (Data Type: Timestamp), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Identifier for the user who created the class record (Data Type: Integer), Primary Key: NO
+Name: IsActive, Type: bit, Description: Flag indicating whether the class is currently active (Data Type: Boolean (0 or 1)), Primary Key: NO
+Name: IsApplicableToCu, Type: bit, Description: Flag indicating whether the class is applicable to custom scenarios (Data Type: Boolean (0 or 1)), Primary Key: NO
+Name: IsApplicableToEm, Type: bit, Description: Flag indicating whether the class is applicable to emergency scenarios (Data Type: Boolean (0 or 1)), Primary Key: NO
+Name: IsApplicableToIp, Type: bit, Description: Flag indicating whether the class is applicable to inpatient scenarios (Data Type: Boolean (0 or 1)), Primary Key: NO
+Name: IsApplicableToOp, Type: bit, Description: Flag indicating whether the class is applicable to outpatient scenarios (Data Type: Boolean (0 or 1)), Primary Key: NO
+Name: IsCentralActive, Type: bit, Description: Flag indicating central system activity status for the class (Data Type: Boolean (0 or 1)), Primary Key: NO
+Name: Name, Type: varchar, Description: The name of the class (Data Type: String), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: Timestamp indicating when the class record was last updated (Data Type: Timestamp), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Identifier for the user who last updated the class record (Data Type: Integer), Primary Key: NO
+
+Table: HIS_Sales.ClassType
+Columns:
+Name: ClassTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ComplexityLevel
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: ComplexityLevelId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: Percentage, Type: numeric, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.Coverage
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CoverageId, Type: bigint, Description: None, Primary Key: YES
+Name: CreateDate, Type: varchar, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DefaultLimitNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: DefaultLimitTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToCu, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToEm, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToIp, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToOp, Type: bit, Description: None, Primary Key: NO
+Name: LimitTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.CoverageItem
+Columns:
+Name: CoverageDR, Type: bigint, Description: None, Primary Key: NO
+Name: CoverageId, Type: bigint, Description: None, Primary Key: NO
+Name: CoverageItemId, Type: bigint, Description: None, Primary Key: YES
+Name: CreateDate, Type: varchar, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LimitNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: LimitTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: LimitTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: TransactionLevelDR, Type: smallint, Description: None, Primary Key: NO
+Name: TransactionLevelId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.DiscountPortionType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: DiscountPortionTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.LimitType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableAsDefaultLimitType, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToItemLevel, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToOrderLevel, Type: bit, Description: None, Primary Key: NO
+Name: LimitTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.PackageItemPrice
+Columns:
+Name: AutoOrderStockQuantity, Type: numeric, Description: None, Primary Key: NO
+Name: AverageCost, Type: numeric, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DiscountNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: DiscountTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DiscountTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: DoctorPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DoctorPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: DoctorPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: HospitalPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: HospitalPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: HospitalPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsAutoOrder, Type: bit, Description: None, Primary Key: NO
+Name: IsUseRegularAverageCost, Type: bit, Description: None, Primary Key: NO
+Name: IsUseRegularPayoutPortion, Type: bit, Description: None, Primary Key: NO
+Name: IsUseRegularSalesPrice, Type: bit, Description: None, Primary Key: NO
+Name: OtherPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: OtherPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: OtherPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: PackageItemPriceId, Type: bigint, Description: None, Primary Key: YES
+Name: PackagePriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: PackagePriceId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPrice, Type: numeric, Description: None, Primary Key: NO
+Name: StockQuantity, Type: numeric, Description: None, Primary Key: NO
+Name: SupplierPortionFormulaTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SupplierPortionFormulaTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: SupplierPortionNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.PackagePrice
+Columns:
+Name: AverageCost, Type: numeric, Description: None, Primary Key: NO
+Name: ClassDR, Type: bigint, Description: None, Primary Key: NO
+Name: ClassId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EffectiveDate, Type: timestamp, Description: None, Primary Key: NO
+Name: ExpiryDate, Type: timestamp, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PackagePriceId, Type: bigint, Description: None, Primary Key: YES
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPrice, Type: numeric, Description: None, Primary Key: NO
+Name: SalesPriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPriceId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.Payer
+Columns:
+Name: Address, Type: varchar, Description: Payer's address (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: CityDR, Type: bigint, Description: City's local identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: CityId, Type: bigint, Description: City's identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: Code, Type: varchar, Description: Payer's code or identifier (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ContactAddress, Type: varchar, Description: Contact person's address (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ContactCityDR, Type: bigint, Description: Contact person's city's local identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: ContactCityId, Type: bigint, Description: Contact person's city's identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: ContactEmailAddress, Type: varchar, Description: Contact person's email address (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ContactMobileNo, Type: varchar, Description: Contact person's mobile number (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ContactName, Type: varchar, Description: Contact person's name (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ContactPhoneNo, Type: varchar, Description: Contact person's phone number (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: Date and time when the record was created (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: User ID of the user who created the record (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: EmailAddress, Type: varchar, Description: Payer's email address (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: FaxNo, Type: varchar, Description: Payer's fax number (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: IsActive, Type: bit, Description: Indicates if the payer is active (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: Name, Type: varchar, Description: Payer's name (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: Notes, Type: varchar, Description: Additional notes or comments (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: ParentPayerDR, Type: bigint, Description: Parent payer's local identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: ParentPayerId, Type: bigint, Description: Parent payer's identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: PayerConfigDR, Type: bigint, Description: Payer configuration's local identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: PayerConfigId, Type: bigint, Description: Payer configuration's identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: PayerGroupDR, Type: bigint, Description: Payer group's local identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: PayerGroupId, Type: bigint, Description: Payer group's identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: PayerId, Type: bigint, Description: Payer's identifier (Data Type: Numeric (INTEGER)), Primary Key: YES
+Name: PayerTypeDR, Type: smallint, Description: Payer type's local identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: PayerTypeId, Type: smallint, Description: Payer type's identifier (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: PhoneNo, Type: varchar, Description: Payer's phone number (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: TaxNo, Type: varchar, Description: Payer's tax number (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: Date and time when the record was last updated (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: User ID of the user who last updated the record (Data Type: Numeric (INTEGER)), Primary Key: NO
+Name: Website, Type: varchar, Description: Payer's website URL (Data Type: Text (VARCHAR)), Primary Key: NO
+
+Table: HIS_Sales.PayerConfig
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: PayerConfigId, Type: bigint, Description: None, Primary Key: YES
+Name: PaymentTermId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.PayerGroup
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: PayerGroupId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.PayerType
+Columns:
+Name: AlternateCode, Type: varchar, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: PayerTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ProcedureRoom
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: ProcedureRoomId, Type: bigint, Description: None, Primary Key: YES
+Name: ProcedureRoomTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: ProcedureRoomTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ProcedureRoomType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: ProcedureRoomTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.Room
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: RoomId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: WardDR, Type: bigint, Description: None, Primary Key: NO
+Name: WardId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesDiscount
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: varchar, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToCu, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToEm, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToIp, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToOp, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesDiscountGroupDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesDiscountGroupId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesDiscountId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesDiscountGroup
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: varchar, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesDiscountGroupId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesItem
+Columns:
+Name: AlternateCode1, Type: varchar, Description: An alternate code for the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: AlternateCode2, Type: varchar, Description: Another alternate code for the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: AlternateCode3, Type: varchar, Description: A third alternate code for the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: AlternateName1, Type: varchar, Description: An alternate name for the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: AlternateName2, Type: varchar, Description: Another alternate name for the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: AlternateName3, Type: varchar, Description: A third alternate name for the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: Code, Type: varchar, Description: Code associated with the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: The date and time when the sales item record was created. (Data Type: TIMESTAMP), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Identifier for the user who created this record. (Data Type: INTEGER), Primary Key: NO
+Name: IsActive, Type: bit, Description: Status indicating whether the sales item is active (1) or inactive (0). (Data Type: BOOLEAN), Primary Key: NO
+Name: IsApplicableToCu, Type: bit, Description: Indicator if the sales item is applicable to customers. (Data Type: BOOLEAN), Primary Key: NO
+Name: IsApplicableToEm, Type: bit, Description: Indicator if the sales item is applicable to employees. (Data Type: BOOLEAN), Primary Key: NO
+Name: IsApplicableToIp, Type: bit, Description: Indicator if the sales item is applicable to inpatients. (Data Type: BOOLEAN), Primary Key: NO
+Name: IsApplicableToOp, Type: bit, Description: Indicator if the sales item is applicable to outpatients. (Data Type: BOOLEAN), Primary Key: NO
+Name: IsCentralActive, Type: bit, Description: Indicator if the sales item is centrally active. (Data Type: BOOLEAN), Primary Key: NO
+Name: Name, Type: varchar, Description: Name of the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: Notes, Type: varchar, Description: Notes or additional information about the sales item. (Data Type: VARCHAR), Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: Data reference for the organization associated with the sales item. (Data Type: INTEGER), Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: Identifier for the organization associated with the sales item. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute10DR, Type: bigint, Description: Data reference for the 10th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute10Id, Type: bigint, Description: Identifier for the 10th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute1DR, Type: bigint, Description: Data reference for the 1st sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute1Id, Type: bigint, Description: Identifier for the 1st sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute2DR, Type: bigint, Description: Data reference for the 2nd sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute2Id, Type: bigint, Description: Identifier for the 2nd sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute3DR, Type: bigint, Description: Data reference for the 3rd sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute3Id, Type: bigint, Description: Identifier for the 3rd sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute4DR, Type: bigint, Description: Data reference for the 4th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute4Id, Type: bigint, Description: Identifier for the 4th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute5DR, Type: bigint, Description: Data reference for the 5th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute5Id, Type: bigint, Description: Identifier for the 5th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute6DR, Type: bigint, Description: Data reference for the 6th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute6Id, Type: bigint, Description: Identifier for the 6th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute7DR, Type: bigint, Description: Data reference for the 7th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute7Id, Type: bigint, Description: Identifier for the 7th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute8DR, Type: bigint, Description: Data reference for the 8th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute8Id, Type: bigint, Description: Identifier for the 8th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute9DR, Type: bigint, Description: Data reference for the 9th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemAttribute9Id, Type: bigint, Description: Identifier for the 9th sales item attribute. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemGroupDR, Type: bigint, Description: Data reference for the sales item group. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemGroupId, Type: bigint, Description: Identifier for the sales item group. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: Unique identifier for the sales item. (Data Type: INTEGER), Primary Key: YES
+Name: SalesItemSubTypeDR, Type: bigint, Description: Data reference for the sales item subtype. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemSubTypeId, Type: bigint, Description: Identifier for the sales item subtype. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemTypeDR, Type: smallint, Description: Data reference for the sales item type. (Data Type: INTEGER), Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: Identifier for the sales item type. (Data Type: INTEGER), Primary Key: NO
+Name: SalesPriceConfigDR, Type: bigint, Description: Data reference for the sales price configuration. (Data Type: INTEGER), Primary Key: NO
+Name: SalesPriceConfigId, Type: bigint, Description: Identifier for the sales price configuration. (Data Type: INTEGER), Primary Key: NO
+Name: ThroughputNumericFactor, Type: numeric, Description: Numeric factor for throughput. (Data Type: DECIMAL), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: The date and time when the sales item record was last updated. (Data Type: TIMESTAMP), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Identifier for the user who last updated this record. (Data Type: INTEGER), Primary Key: NO
+
+Table: HIS_Sales.SalesItemAttribute
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute1, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute10, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute2, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute3, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute4, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute5, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute6, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute7, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute8, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAttribute9, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesItemAttributeId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesItemGroup
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: ParentSalesItemGroupId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupId, Type: bigint, Description: None, Primary Key: YES
+Name: SalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: TreeLevel, Type: integer, Description: None, Primary Key: NO
+Name: TreePath, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesItemSubType
+Columns:
+Name: AlternateCode, Type: varchar, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesItemSubTypeId, Type: bigint, Description: None, Primary Key: YES
+Name: SalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesItemType
+Columns:
+Name: Code, Type: varchar, Description: Code representing the sales item type. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: IsActive, Type: bit, Description: Indicates if the sales item type is active. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: IsApplicableToCu, Type: bit, Description: Indicates if the sales item type is applicable to customers. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: IsApplicableToEm, Type: bit, Description: Indicates if the sales item type is applicable to employees. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: IsApplicableToIp, Type: bit, Description: Indicates if the sales item type is applicable to inpatients. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: IsApplicableToOp, Type: bit, Description: Indicates if the sales item type is applicable to outpatients. (Data Type: Boolean (BOOLEAN) or Numeric (INTEGER)), Primary Key: NO
+Name: LocalName, Type: varchar, Description: Localized name of the sales item type. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: Name, Type: varchar, Description: Name of the sales item type. (Data Type: Text (VARCHAR)), Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: Identifier for the sales item type. (Data Type: Numeric (INTEGER)), Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: Date and time when the record was last updated. (Data Type: Timestamp (TIMESTAMP)), Primary Key: NO
+
+Table: HIS_Sales.SalesMarkup
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesMarkupId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesOrderStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesOrderStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesOrderType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesOrderTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesPrice
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesPriceId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesPriceConfig
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsDiscountable, Type: bit, Description: None, Primary Key: NO
+Name: IsPriceEditable, Type: bit, Description: None, Primary Key: NO
+Name: IsPricePerDoctor, Type: bit, Description: None, Primary Key: NO
+Name: IsTaxInclusive, Type: bit, Description: None, Primary Key: NO
+Name: IsTaxable, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesMarkupDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesMarkupId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPriceConfigId, Type: bigint, Description: None, Primary Key: YES
+Name: SalesPriceModelDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesPriceModelId, Type: smallint, Description: None, Primary Key: NO
+Name: TaxDR, Type: bigint, Description: None, Primary Key: NO
+Name: TaxId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesPriceModel
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesPriceModelId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesPriority
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesPriorityId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesRequestItemDeliveryStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesRequestItemDeliveryStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesRequestItemStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesRequestItemStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesRequestItemType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesRequestItemTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesRequestStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesRequestStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.SalesRequestType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SalesRequestTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.ServiceLine
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: ServiceLineId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_Sales.TransactionLevel
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToPredefined, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: TransactionLevelId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_Sales.Ward
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: WardId, Type: bigint, Description: None, Primary Key: YES
+
+The Schema Name is HIS_SalesTrx and it has 8 tables: AdmissionCoverageItem, AdmissionDiscountItem, ArInvoice, ArItem, PayerInvoice, SalesOrder, SalesRequest, SalesRequestItem. These are the following columns and description in each table in the schema:
+
+Table: HIS_SalesTrx.AdmissionCoverageItem
+Columns:
+Name: AdmissionCoverageItemId, Type: bigint, Description: None, Primary Key: YES
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: LimitNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: LimitTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: LimitTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: TransactionLevelDR, Type: smallint, Description: None, Primary Key: NO
+Name: TransactionLevelId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_SalesTrx.AdmissionDiscountItem
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionDiscountItemId, Type: bigint, Description: None, Primary Key: YES
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DiscountNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: DiscountPortionTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DiscountPortionTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: DiscountTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DiscountTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemGroupId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: TransactionLevelDR, Type: smallint, Description: None, Primary Key: NO
+Name: TransactionLevelId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_SalesTrx.ArInvoice
+Columns:
+Name: Address, Type: varchar, Description: None, Primary Key: NO
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: ArInvoiceId, Type: bigint, Description: None, Primary Key: YES
+Name: ArInvoiceNo, Type: varchar, Description: None, Primary Key: NO
+Name: ArInvoiceStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: ArInvoiceStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: ArInvoiceTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: ArInvoiceTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: BirthDate, Type: varchar, Description: None, Primary Key: NO
+Name: CancelApproveUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelApproveuserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelDate, Type: varchar, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelReasonDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelReasonId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CityDR, Type: bigint, Description: None, Primary Key: NO
+Name: CityId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DiseaseCodeList, Type: varchar, Description: None, Primary Key: NO
+Name: DiseaseList, Type: varchar, Description: None, Primary Key: NO
+Name: EmployeeId, Type: bigint, Description: None, Primary Key: NO
+Name: InvoiceBalanceAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceDate, Type: varchar, Description: None, Primary Key: NO
+Name: InvoiceDiscountAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceGrossAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceNetAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceOtherAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceRoundAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceSettlementStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: InvoiceSettlementStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: IsDetailPrinted, Type: bit, Description: None, Primary Key: NO
+Name: IsPatientRegistered, Type: bit, Description: None, Primary Key: NO
+Name: IsPrinted, Type: bit, Description: None, Primary Key: NO
+Name: ItemAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemDiscountAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemOtherAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemTaxAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemTaxableAmount, Type: numeric, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientBalanceAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PatientDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientDiscountAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PatientDiscountNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: PatientDiscountTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: PatientDiscountTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: PatientGrossAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PatientId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientLimitAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PatientNetAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PatientOrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PatientOtherAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PatientRoundAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PatientTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: PatientTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: PayerBalanceAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayerDR, Type: bigint, Description: None, Primary Key: NO
+Name: PayerDiscountAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayerDiscountNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: PayerDiscountTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: PayerDiscountTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: PayerGrossAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayerId, Type: bigint, Description: None, Primary Key: NO
+Name: PayerInvoiceDR, Type: bigint, Description: None, Primary Key: NO
+Name: PayerInvoiceId, Type: bigint, Description: None, Primary Key: NO
+Name: PayerLimitAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayerLimitNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: PayerLimitTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: PayerLimitTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: PayerNetAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayerOtherAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayerRoundAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PrimaryDisease, Type: varchar, Description: None, Primary Key: NO
+Name: PrimaryDiseaseName, Type: varchar, Description: None, Primary Key: NO
+Name: ProcedureCodeList, Type: varchar, Description: None, Primary Key: NO
+Name: ProcedureList, Type: varchar, Description: None, Primary Key: NO
+Name: SexDR, Type: smallint, Description: None, Primary Key: NO
+Name: SexId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: UserDR, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_SalesTrx.ArItem
+Columns:
+Name: AdmissionCoverageItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionCoverageItemId, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionDiscountItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionDiscountItemId, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: ArInvoiceDR, Type: bigint, Description: None, Primary Key: NO
+Name: ArInvoiceId, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemDeliveryStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: ArItemDeliveryStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: ArItemId, Type: bigint, Description: None, Primary Key: YES
+Name: ArItemStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: ArItemStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: ArItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: ArItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: ArReturnStockQuantity, Type: numeric, Description: None, Primary Key: NO
+Name: AverageCost, Type: numeric, Description: None, Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelReasonDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelReasonId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CheckupPackageItemPriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: CheckupPackageItemPriceId, Type: bigint, Description: None, Primary Key: NO
+Name: CheckupPackagePriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: CheckupPackagePriceId, Type: bigint, Description: None, Primary Key: NO
+Name: ComplexityLevelDR, Type: smallint, Description: None, Primary Key: NO
+Name: ComplexityLevelId, Type: smallint, Description: None, Primary Key: NO
+Name: ConsignmentOrderItemId, Type: bigint, Description: None, Primary Key: NO
+Name: CoverageItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: CoverageItemId, Type: bigint, Description: None, Primary Key: NO
+Name: CoverageLimitNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: CoverageLimitTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: CoverageLimitTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DiscountNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: DiscountPortionTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DiscountPortionTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: DiscountTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: DiscountTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: DoctorPortionAmount, Type: numeric, Description: None, Primary Key: NO
+Name: DoctorUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: DoctorUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EndDate, Type: timestamp, Description: None, Primary Key: NO
+Name: HospitalPortionAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceClassArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: InvoiceClassArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: InvoiceClassDR, Type: bigint, Description: None, Primary Key: NO
+Name: InvoiceClassId, Type: bigint, Description: None, Primary Key: NO
+Name: IsDefaultInvoiceClass, Type: bit, Description: None, Primary Key: NO
+Name: IsDefaultSalesPrice, Type: bit, Description: None, Primary Key: NO
+Name: IsTaxInclusive, Type: bit, Description: None, Primary Key: NO
+Name: IsTaxable, Type: bit, Description: None, Primary Key: NO
+Name: ItemAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemBatchId, Type: bigint, Description: None, Primary Key: NO
+Name: ItemDiscountAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemHistoryId, Type: bigint, Description: None, Primary Key: NO
+Name: ItemNetAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemOtherAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemReturnStockQuantity, Type: numeric, Description: None, Primary Key: NO
+Name: ItemTaxAmount, Type: numeric, Description: None, Primary Key: NO
+Name: ItemTaxableAmount, Type: numeric, Description: None, Primary Key: NO
+Name: MedicalOrderItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: MedicalOrderItemId, Type: bigint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrderDate, Type: timestamp, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: OtherId, Type: bigint, Description: None, Primary Key: NO
+Name: OtherPortionAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PackageArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: PackageArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: PackageItemPriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: PackageItemPriceId, Type: bigint, Description: None, Primary Key: NO
+Name: PackageLimitNumericFactor, Type: numeric, Description: None, Primary Key: NO
+Name: PackageLimitTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: PackagePriceDR, Type: bigint, Description: None, Primary Key: NO
+Name: PackagePriceId, Type: bigint, Description: None, Primary Key: NO
+Name: PackageSalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: PackageSalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: PackageSalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: PackageSalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: PatientNetAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayerNetAmount, Type: numeric, Description: None, Primary Key: NO
+Name: PayoutDoctorAssignDate, Type: timestamp, Description: None, Primary Key: NO
+Name: PayoutDoctorAssignUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: PayoutDoctorAssignUserId, Type: bigint, Description: None, Primary Key: NO
+Name: PayoutDoctorUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: PayoutDoctorUserId, Type: bigint, Description: None, Primary Key: NO
+Name: PayoutGrossAmount, Type: numeric, Description: None, Primary Key: NO
+Name: Quantity, Type: numeric, Description: None, Primary Key: NO
+Name: ReturnArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: ReturnArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesDiscountItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesOrderDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesOrderId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesPrice, Type: numeric, Description: None, Primary Key: NO
+Name: SalesPriorityDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesPriorityId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesRequestItemId, Type: bigint, Description: None, Primary Key: NO
+Name: ScheduleId, Type: bigint, Description: None, Primary Key: NO
+Name: ScheduleUserId, Type: bigint, Description: None, Primary Key: NO
+Name: StartDate, Type: timestamp, Description: None, Primary Key: NO
+Name: StockQuantity, Type: numeric, Description: None, Primary Key: NO
+Name: SupplierPortionAmount, Type: numeric, Description: None, Primary Key: NO
+Name: TaxDR, Type: bigint, Description: None, Primary Key: NO
+Name: TaxId, Type: bigint, Description: None, Primary Key: NO
+Name: TaxPercentage, Type: numeric, Description: None, Primary Key: NO
+Name: TotalAverageCost, Type: numeric, Description: None, Primary Key: NO
+Name: TotalBatchCost, Type: numeric, Description: None, Primary Key: NO
+Name: UomDR, Type: bigint, Description: None, Primary Key: NO
+Name: UomId, Type: bigint, Description: None, Primary Key: NO
+Name: UomRatio, Type: numeric, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_SalesTrx.PayerInvoice
+Columns:
+Name: CancelApproveUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelApproveUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DueDate, Type: date, Description: None, Primary Key: NO
+Name: DueDays, Type: integer, Description: None, Primary Key: NO
+Name: InvoiceAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceBalanceAmount, Type: numeric, Description: None, Primary Key: NO
+Name: InvoiceDate, Type: timestamp, Description: None, Primary Key: NO
+Name: InvoiceSettlementStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: InvoiceSettlementStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PayerDR, Type: bigint, Description: None, Primary Key: NO
+Name: PayerId, Type: bigint, Description: None, Primary Key: NO
+Name: PayerInvoiceId, Type: bigint, Description: None, Primary Key: YES
+Name: PayerInvoiceNo, Type: varchar, Description: None, Primary Key: NO
+Name: PayerInvoiceStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_SalesTrx.SalesOrder
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelReasonDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelReasonId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: EmailAddress, Type: varchar, Description: None, Primary Key: NO
+Name: EmailTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: EmailTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrderDate, Type: timestamp, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesOrderId, Type: bigint, Description: None, Primary Key: YES
+Name: SalesOrderNo, Type: varchar, Description: None, Primary Key: NO
+Name: SalesOrderStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesOrderStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesOrderTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesOrderTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: StoreDR, Type: bigint, Description: None, Primary Key: NO
+Name: StoreId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_SalesTrx.SalesRequest
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: RequestDate, Type: timestamp, Description: None, Primary Key: NO
+Name: SalesRequestId, Type: bigint, Description: None, Primary Key: YES
+Name: SalesRequestNo, Type: varchar, Description: None, Primary Key: NO
+Name: SalesRequestStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: StoreDR, Type: bigint, Description: None, Primary Key: NO
+Name: StoreId, Type: bigint, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_SalesTrx.SalesRequestItem
+Columns:
+Name: AdmissionDR, Type: bigint, Description: None, Primary Key: NO
+Name: AdmissionId, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: ArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: CancelDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CancelNotes, Type: varchar, Description: None, Primary Key: NO
+Name: CancelUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: CancelUserId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DoctorUserDR, Type: bigint, Description: None, Primary Key: NO
+Name: DoctorUserId, Type: bigint, Description: None, Primary Key: NO
+Name: Notes, Type: varchar, Description: None, Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: None, Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: None, Primary Key: NO
+Name: PackageSalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: PackageSalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: PackageSalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: PackageSalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: Quantity, Type: numeric, Description: None, Primary Key: NO
+Name: RequestArItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: RequestArItemId, Type: bigint, Description: None, Primary Key: NO
+Name: RequestDate, Type: timestamp, Description: None, Primary Key: NO
+Name: SalesItemDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesPriorityDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesPriorityId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestDR, Type: bigint, Description: None, Primary Key: NO
+Name: SalesRequestId, Type: bigint, Description: None, Primary Key: NO
+Name: SalesRequestItemDeliveryStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestItemDeliveryStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestItemId, Type: bigint, Description: None, Primary Key: YES
+Name: SalesRequestItemStatusDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestItemStatusId, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestItemTypeDR, Type: smallint, Description: None, Primary Key: NO
+Name: SalesRequestItemTypeId, Type: smallint, Description: None, Primary Key: NO
+Name: ScheduleId, Type: bigint, Description: None, Primary Key: NO
+Name: ScheduleUserId, Type: bigint, Description: None, Primary Key: NO
+Name: StockQuantity, Type: numeric, Description: None, Primary Key: NO
+Name: UomDR, Type: bigint, Description: None, Primary Key: NO
+Name: UomId, Type: bigint, Description: None, Primary Key: NO
+Name: UomRatio, Type: numeric, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+The Schema Name is HIS_General and it has 19 tables: ApprovalStatus, BloodType, CancelReason, City, Country, Department, Designation, DiscountType, District, FormulaType, InvoiceSettlementStatus, MaritalStatus, NationalIdType, Religion, Sex, State, SubDistrict, Tax, Title. These are the following columns and description in each table in the schema:
+
+Table: HIS_General.ApprovalStatus
+Columns:
+Name: ApprovalStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_General.BloodType
+Columns:
+Name: BloodTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_General.CancelReason
+Columns:
+Name: CancelReasonId, Type: bigint, Description: None, Primary Key: YES
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToAdmission, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToArInvoice, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToArSettlement, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToSalesOrder, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.City
+Columns:
+Name: CityId, Type: bigint, Description: Unique identifier for each city (Data Type: INTEGER), Primary Key: YES
+Name: Code, Type: varchar, Description: Code associated with the city (Data Type: VARCHAR), Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: The date and time when the city record was created (Data Type: TIMESTAMP), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Identifier for the user who created this record (Data Type: INTEGER), Primary Key: NO
+Name: IsActive, Type: bit, Description: Status indicating whether the city is active (1) or inactive (0) (Data Type: BOOLEAN), Primary Key: NO
+Name: Name, Type: varchar, Description: Name of the city (Data Type: VARCHAR), Primary Key: NO
+Name: StateDR, Type: bigint, Description: Data reference for the state to which the city belongs (Data Type: INTEGER), Primary Key: NO
+Name: StateId, Type: bigint, Description: Identifier for the state to which the city belongs (Data Type: INTEGER), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: The date and time when the city record was last updated (Data Type: TIMESTAMP), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Identifier for the user who last updated this record (Data Type: INTEGER), Primary Key: NO
+
+Table: HIS_General.Country
+Columns:
+Name: AlternateName, Type: varchar, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CountryId, Type: bigint, Description: None, Primary Key: YES
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.Department
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DepartmentId, Type: bigint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.Designation
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DesignationId, Type: bigint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.DiscountType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: DiscountTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToItemLevel, Type: bit, Description: None, Primary Key: NO
+Name: IsApplicableToOrderLevel, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_General.District
+Columns:
+Name: CityDR, Type: bigint, Description: None, Primary Key: NO
+Name: CityId, Type: bigint, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DistrictId, Type: bigint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.FormulaType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: FormulaTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_General.InvoiceSettlementStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: InvoiceSettlementStatusId, Type: smallint, Description: None, Primary Key: YES
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_General.MaritalStatus
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: MaritalStatusId, Type: bigint, Description: None, Primary Key: YES
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.NationalIdType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: NationalIdTypeId, Type: smallint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+
+Table: HIS_General.Religion
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: ReligionId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.Sex
+Columns:
+Name: Code, Type: varchar, Description: A code representing the sex (e.g., Male, Female). (Data Type: VARCHAR), Primary Key: NO
+Name: IsActive, Type: bit, Description: Indicates whether the sex record is active (1) or inactive (0). (Data Type: BOOLEAN), Primary Key: NO
+Name: IsFemale, Type: bit, Description: Indicates whether the sex is female (1) or not (0). (Data Type: BOOLEAN), Primary Key: NO
+Name: IsMale, Type: bit, Description: Indicates whether the sex is male (1) or not (0). (Data Type: BOOLEAN), Primary Key: NO
+Name: LocalName, Type: varchar, Description: The local name for the sex (e.g., laki-laki, Wanita). (Data Type: VARCHAR), Primary Key: NO
+Name: Name, Type: varchar, Description: The name of the sex (e.g., Male, Female). (Data Type: VARCHAR), Primary Key: NO
+Name: SexId, Type: smallint, Description: Unique identifier for the sex. (Data Type: INTEGER), Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: The date and time when the sex record was last updated. (Data Type: TIMESTAMP), Primary Key: NO
+
+Table: HIS_General.State
+Columns:
+Name: AlternateName, Type: varchar, Description: None, Primary Key: NO
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CountryDR, Type: bigint, Description: None, Primary Key: NO
+Name: CountryId, Type: bigint, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: StateId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.SubDistrict
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: DistrictDR, Type: bigint, Description: None, Primary Key: NO
+Name: DistrictId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: SubDistrictId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.Tax
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: Percentage, Type: numeric, Description: None, Primary Key: NO
+Name: TaxId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+Table: HIS_General.Title
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: CreateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: TitleId, Type: bigint, Description: None, Primary Key: YES
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: None, Primary Key: NO
+
+The Schema Name is HIS_Security and it has 2 tables: User, UserType. These are the following columns and description in each table in the schema:
+
+Table: HIS_Security.User
+Columns:
+Name: CreateDate, Type: timestamp, Description: The date and time when the user record was created (Data Type: TIMESTAMP), Primary Key: NO
+Name: CreateUserId, Type: bigint, Description: Identifier for the user who created this record (Data Type: INTEGER), Primary Key: NO
+Name: DepartmentDR, Type: bigint, Description: Data reference for the department to which the user belongs (Data Type: INTEGER), Primary Key: NO
+Name: DepartmentId, Type: bigint, Description: Identifier for the department to which the user belongs (Data Type: INTEGER), Primary Key: NO
+Name: DesignationDR, Type: bigint, Description: Data reference for the user's designation (Data Type: INTEGER), Primary Key: NO
+Name: DesignationId, Type: bigint, Description: Identifier for the user's designation (Data Type: INTEGER), Primary Key: NO
+Name: Domain, Type: varchar, Description: Domain associated with the user (Data Type: VARCHAR), Primary Key: NO
+Name: EmployeeNo, Type: varchar, Description: Employee number assigned to the user (Data Type: VARCHAR), Primary Key: NO
+Name: IsActive, Type: bit, Description: Status indicating whether the user is active (1) or inactive (0) (Data Type: BOOLEAN), Primary Key: NO
+Name: Name, Type: varchar, Description: Full name of the user (Data Type: VARCHAR), Primary Key: NO
+Name: OrganizationDR, Type: bigint, Description: Data reference for the organization to which the user belongs (Data Type: INTEGER), Primary Key: NO
+Name: OrganizationId, Type: bigint, Description: Identifier for the organization to which the user belongs (Data Type: INTEGER), Primary Key: NO
+Name: SpecialtyDR, Type: bigint, Description: Data reference for the user's specialty (Data Type: INTEGER), Primary Key: NO
+Name: SpecialtyId, Type: bigint, Description: Identifier for the user's specialty. (Data Type: INTEGER), Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: The date and time when the user record was last updated (Data Type: TIMESTAMP), Primary Key: NO
+Name: UpdateUserId, Type: bigint, Description: Identifier for the user who last updated this record (Data Type: INTEGER), Primary Key: NO
+Name: UserCode, Type: varchar, Description: Unique code assigned to the user (Data Type: VARCHAR), Primary Key: NO
+Name: UserId, Type: bigint, Description: Unique identifier for the user (Data Type: INTEGER), Primary Key: YES
+Name: UserName, Type: varchar, Description: Username of the user for login purposes (Data Type: VARCHAR), Primary Key: NO
+Name: UserNo, Type: varchar, Description: User number associated with the user (Data Type: VARCHAR), Primary Key: NO
+Name: UserTypeDR, Type: smallint, Description: Data reference for the user's type (Data Type: INTEGER), Primary Key: NO
+Name: UserTypeId, Type: smallint, Description: Identifier for the user's type (Data Type: INTEGER), Primary Key: NO
+
+Table: HIS_Security.UserType
+Columns:
+Name: Code, Type: varchar, Description: None, Primary Key: NO
+Name: IsActive, Type: bit, Description: None, Primary Key: NO
+Name: LocalName, Type: varchar, Description: None, Primary Key: NO
+Name: Name, Type: varchar, Description: None, Primary Key: NO
+Name: UpdateDate, Type: timestamp, Description: None, Primary Key: NO
+Name: UserTypeId, Type: smallint, Description: None, Primary Key: YES
+
